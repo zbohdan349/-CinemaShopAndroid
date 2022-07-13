@@ -31,11 +31,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/pane"
-                    android:name="com.example.cinemashopandroid.ui.filmCard.FilmCard"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listFilms"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
             </ScrollView>
         </LinearLayout>
     </LinearLayout>

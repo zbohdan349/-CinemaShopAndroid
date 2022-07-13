@@ -1,21 +1,19 @@
 package com.example.cinemashopandroid;
 
 import android.os.Bundle;
-import android.view.View;
 
-import com.example.cinemashopandroid.ui.filmCard.FilmCard;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.cinemashopandroid.databinding.ActivityMainBinding;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,10 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        View view = binding.getRoot();
-
-
-
 
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
