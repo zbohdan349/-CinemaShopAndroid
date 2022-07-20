@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cinemashopandroid.MainActivity;
 import com.example.cinemashopandroid.databinding.FragmentHomeBinding;
+import com.example.cinemashopandroid.logic.FilmService;
 import com.example.cinemashopandroid.logic.FilmsAdapter;
+import com.example.cinemashopandroid.logic.RestClient;
 import com.example.cinemashopandroid.logic.model.FilmDto;
 import com.example.cinemashopandroid.logic.model.Language;
 import com.example.cinemashopandroid.logic.model.Rating;
+
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+    private static List<FilmDto> list =new ArrayList<>();
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,12 +38,12 @@ public class HomeFragment extends Fragment {
 
         RecyclerView recyclerView = binding.listFilms;
 
-        FilmDto filmDto = new FilmDto(1,"asdasd",new Language(1,"asd"),2002,new BigDecimal(100),new BigDecimal(432), Rating.PG);
-        FilmDto filmDto1 = new FilmDto(1,"asdasd",new Language(2,"asd"),2002,new BigDecimal(100),new BigDecimal(432), Rating.PG);
-        List<FilmDto> filmDtoList = new ArrayList<>();
-        filmDtoList.add(filmDto);
-        filmDtoList.add(filmDto1);
-        recyclerView.setAdapter(new FilmsAdapter(this.getContext(),filmDtoList));
+        FilmService filmService = new FilmService();
+        System.out.println("//////////");
+
+
+        list.addAll(filmService.getFilms());
+        recyclerView.setAdapter(new FilmsAdapter(this.getContext(),list));
 
         System.out.println(recyclerView.getAdapter().getItemCount());
 
